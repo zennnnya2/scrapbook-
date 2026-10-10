@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f9e5eb">
+  <title>For You, Sayang ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Patrick+Hand&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient-item a1">♡</span><span class="ambient-item a2">✦</span>
+    <span class="ambient-item a3">✿</span><span class="ambient-item a4">♡</span>
+    <span class="ambient-item a5">✧</span><span class="ambient-item a6">❀</span>
+  </div>
+
+  <div class="top-tools">
+    <div class="tiny-brand">made with ♡ for Sayang</div>
+    <button id="musicToggle" class="music-toggle" type="button" aria-pressed="false">
+      <span class="music-icon">♫</span><span id="musicLabel">Putar musik</span>
+    </button>
+  </div>
+
+  <main class="stage">
+    <div class="book-wrap">
+      <div class="book-shadow"></div>
+
+      <!-- 1. COVER -->
+      <section class="page cover active" data-page="0" aria-label="Sampul">
+        <div class="cover-frame"></div>
+        <div class="spiral" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="cover-decoration deco-heart">♡</div>
+        <div class="cover-decoration deco-star">✦</div>
+        <div class="cover-content">
+          <div class="cover-tape">a little something for you</div>
+          <div class="cover-cat" aria-hidden="true">🐱</div>
+          <p class="eyebrow">A SPECIAL LITTLE BOOK</p>
+          <h1>Happy Birthday,<span>Sayang ♡</span></h1>
+          <p class="cover-subtitle">a scrapbook full of little moments & big love</p>
+          <div class="cover-date">11 · 10 · 2026</div>
+          <button class="primary-btn open-book" type="button">Buka hadiahmu <span>→</span></button>
+          <p class="cover-foot">dibuat khusus untuk kamu ✿</p>
+        </div>
+      </section>
+
+      <!-- 2. BIRTHDAY GREETING -->
+      <section class="page paper greeting" data-page="1" aria-label="Ucapan ulang tahun" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 02 · YOUR DAY</p><h2>Today is all about you!</h2></div><span class="heading-sticker">🎂</span></header>
+        <div class="pink-rule"></div>
+        <div class="birthday-illustration" aria-hidden="true"><span class="spark s1">✦</span><span class="spark s2">♡</span><span class="cake">🎂</span><span class="spark s3">✧</span></div>
+        <div class="handwriting greeting-copy">
+          <p>Selamat ulang tahun, Sayangku! ♡</p>
+          <p>Hari ini adalah hari spesial karena seseorang yang begitu berarti buat aku bertambah usia.</p>
+          <p>Semoga hal-hal baik selalu menemukan kamu, semoga hati kamu selalu punya alasan untuk bahagia, dan semoga semua harapan baikmu pelan-pelan jadi nyata.</p>
+          <p class="pink-text">You deserve so much happiness. 🌷</p>
+        </div>
+        <div class="sticker-row">🎀　♡　🌷　♡　🎀</div>
+        <div class="page-footer"><span>01 / 07</span><span>keep turning, birthday girl ♡</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 3. PHOTO GALLERY -->
+      <section class="page paper gallery-page" data-page="2" aria-label="Galeri foto" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 03 · OUR SNAPSHOTS</p><h2>Little moments 📸</h2></div><span class="heading-sticker">💗</span></header>
+        <div class="pink-rule"></div>
+        <p class="small-intro">Beberapa potongan kecil yang ingin aku simpan lebih lama.</p>
+        <div class="photo-grid">
+          <button class="polaroid tilt-left" type="button" data-photo="0"><img src="images/foto 1.jpg" alt="Kenangan foto 1"><span class="photo-caption">our little moment ♡</span></button>
+          <button class="polaroid tilt-right lower" type="button" data-photo="1"><img src="images/foto 2.jpg" alt="Kenangan foto 2"><span class="photo-caption">my favorite memory</span></button>
+          <button class="polaroid tilt-right" type="button" data-photo="2"><img src="images/foto 3.jpg" alt="Kenangan foto 3"><span class="photo-caption">you make me smile</span></button>
+          <button class="polaroid tilt-left lower" type="button" data-photo="3"><img src="images/foto 4.jpg" alt="Kenangan foto 4"><span class="photo-caption">a day to remember</span></button>
+          <button class="polaroid tilt-left" type="button" data-photo="4"><img src="images/foto 5.jpg" alt="Kenangan foto 5"><span class="photo-caption">just us things</span></button>
+          <button class="polaroid tilt-right lower" type="button" data-photo="5"><img src="images/foto 6.jpg" alt="Kenangan foto 6"><span class="photo-caption">little happiness</span></button>
+        </div>
+        <p class="gallery-hint">tap foto untuk melihat lebih dekat ✦</p>
+        <div class="page-footer"><span>02 / 07</span><span>made of memories</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 4. TIMELINE -->
+      <section class="page paper timeline-page" data-page="3" aria-label="Timeline kenangan" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 04 · OUR STORY</p><h2>A tiny timeline ♡</h2></div><span class="heading-sticker">🧸</span></header>
+        <div class="pink-rule"></div>
+        <p class="small-intro">Kalau disusun jadi cerita, mungkin bentuknya seperti ini…</p>
+        <div class="timeline">
+          <article class="memory"><span class="memory-dot">♡</span><div><span class="memory-date">THE BEGINNING</span><h3>Waktu kita mulai kenal</h3><p>Awal dari obrolan kecil yang ternyata jadi bagian berarti dari hari-hariku.</p></div></article>
+          <article class="memory"><span class="memory-dot">✿</span><div><span class="memory-date">THE LITTLE THINGS</span><h3>Momen random kita</h3><p>Dari bercanda nggak jelas sampai obrolan panjang, semuanya punya tempat sendiri.</p></div></article>
+          <article class="memory"><span class="memory-dot">✦</span><div><span class="memory-date">A FAVORITE MEMORY</span><h3>Kenangan yang kusimpan</h3><p>Ada hal-hal sederhana yang mungkin biasa saja, tapi jadi spesial karena ada kamu.</p></div></article>
+          <article class="memory"><span class="memory-dot">♡</span><div><span class="memory-date">TODAY & BEYOND</span><h3>Hari ulang tahunmu</h3><p>Hari ini aku cuma ingin kamu merasa disayang, dihargai, dan dirayakan.</p></div></article>
+        </div>
+        <div class="timeline-note">our story, one little moment at a time ♡</div>
+        <div class="page-footer"><span>03 / 07</span><span>to be continued…</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 5. THINGS I LOVE -->
+      <section class="page paper reasons-page" data-page="4" aria-label="Hal-hal yang disukai" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 05 · A LITTLE LIST</p><h2>Things I adore about you</h2></div><span class="heading-sticker">💌</span></header>
+        <div class="pink-rule"></div>
+        <p class="small-intro">Hal-hal kecil tentang kamu yang punya tempat istimewa di hatiku.</p>
+        <div class="reason-list">
+          <div class="reason"><span>01</span><p>Senyum kamu yang bisa bikin suasana terasa lebih hangat.</p><b>♡</b></div>
+          <div class="reason"><span>02</span><p>Cara kamu cerita tentang hal-hal yang kamu suka.</p><b>✿</b></div>
+          <div class="reason"><span>03</span><p>Kebiasaan kecil kamu yang kadang bikin aku gemas.</p><b>♡</b></div>
+          <div class="reason"><span>04</span><p>Usaha kamu, bahkan untuk hal-hal yang mungkin nggak kamu sadari.</p><b>✦</b></div>
+          <div class="reason"><span>05</span><p>Karena kamu adalah diri kamu sendiri, dan itu berarti.</p><b>♡</b></div>
+          <div class="reason"><span>06</span><p>Semua kenangan kecil yang pelan-pelan kita buat bersama.</p><b>🌷</b></div>
+        </div>
+        <div class="sticky-note">you are loved more than you know ♡</div>
+        <div class="page-footer"><span>04 / 07</span><span>little things, big feelings</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 6. LETTER -->
+      <section class="page paper letter-page" data-page="5" aria-label="Surat untuk Sayang" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 06 · FROM MY HEART</p><h2>A letter for you 💌</h2></div><span class="heading-sticker">🩷</span></header>
+        <div class="pink-rule"></div>
+        <div class="letter-paper">
+          <p class="letter-salutation">Untuk Sayang,</p>
+          <div id="typedLetter" class="typed-letter" aria-live="polite"></div>
+          <span class="typing-cursor" id="typingCursor">|</span>
+          <p class="letter-sign">with all my love, ♡<br><strong>aku</strong></p>
+        </div>
+        <button class="small-action" id="showLetter" type="button">Tampilkan surat lengkap</button>
+        <div class="page-footer"><span>05 / 07</span><span>a little piece of my heart</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 7. WISH -->
+      <section class="page paper wish-page" data-page="6" aria-label="Kejutan ulang tahun" aria-hidden="true">
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <header class="page-heading"><div><p class="eyebrow">PAGE 07 · MAKE A WISH</p><h2>One wish for you ✨</h2></div><span class="heading-sticker">🎂</span></header>
+        <div class="pink-rule"></div>
+        <div class="wish-scene">
+          <div class="wish-sparkle ws1">✦</div><div class="wish-sparkle ws2">♡</div><div class="wish-sparkle ws3">✧</div>
+          <div class="birthday-cake" aria-hidden="true"><div class="flames"><i></i><i></i><i></i></div><div class="cake-top"></div><div class="cake-middle"></div><div class="cake-bottom"></div><div class="cake-plate"></div></div>
+          <p class="wish-title">Make a wish, Sayang!</p>
+          <p class="wish-copy">Pejamkan mata sebentar, pikirkan satu harapan, lalu tekan tombol di bawah. ♡</p>
+          <button id="wishButton" class="primary-btn wish-button" type="button">My birthday wish ✨</button>
+          <p id="wishMessage" class="wish-message" hidden>Semoga tahun ini membawa banyak tawa, ketenangan, kesempatan baik, dan hal-hal yang bikin kamu bahagia. Happy birthday, Sayang! ♡</p>
+        </div>
+        <div class="page-footer"><span>06 / 07</span><span>your day, your wishes</span></div>
+        <button class="nav-btn prev" type="button" aria-label="Halaman sebelumnya">←</button>
+        <button class="nav-btn next" type="button" aria-label="Halaman berikutnya">→</button>
+      </section>
+
+      <!-- 8. CLOSING -->
+      <section class="page closing-page" data-page="7" aria-label="Penutup" aria-hidden="true">
+        <div class="cover-frame"></div>
+        <div class="spiral" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="closing-content">
+          <div class="closing-flower">🌷</div>
+          <p class="eyebrow">END OF THIS LITTLE BOOK</p>
+          <h2>One more thing…</h2>
+          <p>Semoga saat kamu menutup buku ini, kamu ingat bahwa kamu pantas dirayakan—hari ini dan di hari-hari biasa juga.</p>
+          <p class="closing-love">Happy birthday, Sayang ♡</p>
+          <button id="closeBook" class="primary-btn" type="button">Tutup buku 📕</button>
+          <button id="readAgain" class="text-btn" type="button">atau baca lagi ↻</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="reader-controls">
+      <button id="bottomPrev" type="button" aria-label="Halaman sebelumnya">← Sebelumnya</button>
+      <div class="page-status"><span id="pageNumber">Cover</span><div class="progress-track"><div id="progressBar"></div></div></div>
+      <button id="bottomNext" type="button" aria-label="Halaman berikutnya">Berikutnya →</button>
+    </div>
+    <p class="keyboard-hint">Tips: gunakan tombol ← → pada keyboard untuk berpindah halaman</p>
+  </main>
+
+  <audio id="bgMusic" src="audio/masa indah.mp3" loop preload="none"></audio>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Tutup foto">×</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button" aria-label="Foto sebelumnya">‹</button>
+    <figure class="lightbox-figure"><img id="lightboxImage" src="" alt="Foto kenangan"><figcaption id="lightboxCaption"></figcaption></figure>
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Foto berikutnya">›</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>

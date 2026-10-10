@@ -1,0 +1,235 @@
+ :root {
+  --pink: #dc7894;
+  --pink-dark: #b64e70;
+  --pink-light: #f7dce5;
+  --pink-pale: #fff1f5;
+  --paper: #fffdf8;
+  --ink: #59444b;
+  --muted: #997b85;
+  --shadow: rgba(119, 61, 82, .19);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  min-height: 100vh; overflow-x: hidden; color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  background-color: #fbf2f3;
+  background-image: radial-gradient(#e8cbd3 1px, transparent 1px);
+  background-size: 19px 19px;
+}
+button { font: inherit; }
+button:focus-visible { outline: 3px solid #c65f82; outline-offset: 4px; }
+.ambient { position: fixed; inset: 0; pointer-events: none; overflow: hidden; }
+.ambient-item { position: absolute; color: #d88aa2; opacity: .48; font-size: 28px; animation: float 5s ease-in-out infinite; }
+.a1 { top: 16%; left: 10%; }.a2 { top: 23%; right: 13%; animation-delay: .7s; }
+.a3 { bottom: 16%; left: 13%; animation-delay: 1.4s; }.a4 { bottom: 20%; right: 12%; animation-delay: 2s; }
+.a5 { top: 55%; left: 5%; animation-delay: 1s; }.a6 { top: 60%; right: 6%; animation-delay: 2.4s; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-13px) rotate(9deg); } }
+
+.top-tools { width: min(1120px, 94vw); margin: 18px auto 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; position: relative; z-index: 20; }
+.tiny-brand { font-size: 12px; color: #a77a89; letter-spacing: .04em; }
+.music-toggle { border: 1px solid #efc5d2; background: rgba(255,255,255,.8); color: var(--pink-dark); border-radius: 999px; padding: 9px 14px; display: flex; gap: 8px; align-items: center; cursor: pointer; box-shadow: 0 5px 18px #d4a6b51c; }
+.music-toggle.playing { background: #f7dce5; }
+.music-icon { font-size: 17px; }
+
+.stage { min-height: calc(100vh - 58px); padding: 16px 12px 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.book-wrap { width: min(480px, 88vw); height: min(700px, 78vh); min-height: 540px; position: relative; perspective: 1600px; }
+.book-shadow { position: absolute; inset: 20px -12px -13px 12px; background: #bd8295; opacity: .13; filter: blur(23px); border-radius: 24px; }
+.page { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; border-radius: 13px 17px 17px 13px; opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(55px) rotateY(-11deg) scale(.975); transform-origin: left center; box-shadow: 0 22px 55px var(--shadow), inset 0 0 0 1px rgba(255,255,255,.7); transition: opacity .35s ease, transform .58s cubic-bezier(.2,.75,.25,1), visibility .35s; }
+.page.active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0) rotateY(0) scale(1); z-index: 3; }
+.page.leaving { opacity: 0; visibility: visible; transform: translateX(-45px) rotateY(9deg) scale(.97); z-index: 2; }
+.page.entering-from-back { transform: translateX(-55px) rotateY(11deg) scale(.975); }
+.page.paper { padding: 35px 31px 42px 47px; background-color: var(--paper); background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 30px, rgba(226,168,184,.15) 31px); }
+.page.paper::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 7px; background: repeating-linear-gradient(to bottom, #e9a2b7 0 12px, #fff 12px 23px); pointer-events: none; }
+.spiral { position: absolute; z-index: 8; left: 7px; top: 18px; bottom: 18px; display: flex; flex-direction: column; justify-content: space-around; width: 28px; pointer-events: none; }
+.spiral i { width: 27px; height: 11px; border: 2px solid #d8d3d4; border-radius: 7px; background: linear-gradient(white,#e8e2e3); box-shadow: 0 2px 3px #65414c20; }
+.cover, .closing-page { background: linear-gradient(145deg,#f2a7bb,#d9688a); border: 5px solid #fff; color: white; }
+.cover-frame { position: absolute; inset: 10px; border: 1px solid #fff9; border-radius: 9px; pointer-events: none; }
+.cover-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 39px 31px 30px 43px; }
+.cover-tape { position: absolute; top: 38px; padding: 7px 13px; color: #a85b74; background: #ffe8ee; font: 14px "Patrick Hand", cursive; transform: rotate(-4deg); box-shadow: 0 3px 7px #923d5b20; }
+.cover-cat { font-size: 72px; margin: 14px 0 8px; filter: drop-shadow(0 6px 4px #8f3d581c); animation: bob 3s ease-in-out infinite; }
+.eyebrow { margin: 0 0 8px; font-size: 9px; letter-spacing: .19em; font-weight: 700; color: #b06d83; }
+.cover .eyebrow { color: #fff6f8; }
+.cover h1 { margin: 0; font: 700 clamp(37px,7vw,55px)/.98 "Playfair Display", serif; letter-spacing: -.04em; text-shadow: 0 3px 0 #b34c6b22; }
+.cover h1 span { display: block; font: 400 clamp(35px,6.5vw,49px)/1.2 "Patrick Hand", cursive; letter-spacing: 0; margin-top: 8px; }
+.cover-subtitle { max-width: 255px; font-size: 11px; line-height: 1.7; color: #fff7f9; margin: 15px 0 14px; }
+.cover-date { padding: 7px 14px; border: 1px solid #fff9; border-radius: 99px; font-size: 10px; letter-spacing: .15em; }
+.primary-btn { border: 0; background: #fff9fa; color: #b44e70; border-radius: 999px; padding: 12px 19px; font-weight: 700; font-size: 12px; cursor: pointer; box-shadow: 0 7px 18px #84334e24; transition: transform .2s, box-shadow .2s; }
+.primary-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px #84334e2c; }
+.open-book { margin-top: 23px; }
+.open-book span { margin-left: 7px; }
+.cover-foot { font: 13px "Patrick Hand", cursive; color: #fff5f8; margin: 18px 0 0; }
+.cover-decoration { position: absolute; z-index: 1; color: #fff8; }
+.deco-heart { left: 48px; bottom: 70px; font-size: 39px; transform: rotate(-14deg); }
+.deco-star { right: 38px; top: 120px; font-size: 30px; }
+
+.page-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; z-index: 1; }
+.page-heading h2 { font: 400 27px/1.06 "Patrick Hand", cursive; color: #79515f; margin: 0; }
+.page-heading .eyebrow { font-size: 8px; margin-bottom: 7px; }
+.heading-sticker { font-size: 25px; transform: rotate(7deg); }
+.pink-rule { height: 1px; background: repeating-linear-gradient(to right,#dfa1b3 0 5px,transparent 5px 9px); margin: 14px 0 17px; }
+.handwriting { font: 18px/1.55 "Patrick Hand", cursive; }
+.handwriting p { margin: 0 0 14px; }
+.greeting-copy { margin-top: 2px; }
+.greeting-copy p:first-child { color: #c45f80; font-size: 23px; }
+.pink-text { color: #c45f80; }
+.birthday-illustration { height: 104px; display: grid; place-items: center; position: relative; margin: 0 0 6px; }
+.cake { font-size: 69px; filter: drop-shadow(0 5px 4px #b65c7b20); animation: bob 2.8s ease-in-out infinite; }
+.spark { position: absolute; color: #d77b98; font-size: 23px; animation: sparkle 2s ease-in-out infinite; }
+.s1 { left: 22%; top: 12px; }.s2 { right: 23%; top: 17px; animation-delay: .5s; }.s3 { right: 30%; bottom: 4px; animation-delay: 1s; }
+.sticker-row { text-align: center; margin-top: 14px; font-size: 19px; }
+.page-footer { position: absolute; left: 48px; right: 22px; bottom: 13px; display: flex; justify-content: space-between; gap: 8px; font-size: 8px; color: #b08a97; letter-spacing: .04em; }
+
+.small-intro { font: 15px/1.4 "Patrick Hand", cursive; color: #9a7582; margin: 0 0 13px; }
+.photo-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 11px 8px; padding: 2px 3px; }
+.polaroid { min-width: 0; padding: 5px 5px 7px; background: #fff; border: 0; box-shadow: 0 3px 10px #86506120; cursor: zoom-in; transform: rotate(0deg) scale(.94); opacity: 0; transition: transform .25s, box-shadow .25s; }
+.page.active .polaroid { animation: photoPop .48s cubic-bezier(.2,.8,.2,1) forwards; }
+.page.active .polaroid:nth-child(2) { animation-delay: .07s; }.page.active .polaroid:nth-child(3) { animation-delay: .13s; }.page.active .polaroid:nth-child(4) { animation-delay: .19s; }.page.active .polaroid:nth-child(5) { animation-delay: .25s; }.page.active .polaroid:nth-child(6) { animation-delay: .31s; }
+.polaroid:hover { transform: rotate(0) translateY(-4px) scale(1.04); box-shadow: 0 9px 17px #8650612e; z-index: 2; }
+.polaroid img { display: block; width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; background: #f7e4e9; color: #9e7b86; font-size: 9px; }
+.photo-caption { display: block; padding-top: 5px; color: #997080; font: 10px "Patrick Hand", cursive; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tilt-left { rotate: -3deg; }.tilt-right { rotate: 3deg; }.lower { translate: 0 4px; }
+.gallery-hint { text-align: center; font: 12px "Patrick Hand", cursive; color: #b07b8e; margin: 12px 0 0; }
+.gallery-page { padding-top: 29px !important; }
+.gallery-page .page-heading h2 { font-size: 25px; }
+.gallery-page .pink-rule { margin: 10px 0 12px; }
+.gallery-page .small-intro { font-size: 13px; margin-bottom: 8px; }
+
+.timeline { position: relative; margin: 16px 0 0 7px; padding-left: 24px; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 9px; bottom: 14px; width: 2px; background: #e9b6c5; transform: scaleY(0); transform-origin: top; }
+.page.active .timeline::before { animation: drawLine .9s .12s forwards; }
+.memory { position: relative; margin: 0 0 18px; opacity: 0; transform: translateX(15px); }
+.page.active .memory { animation: memoryIn .45s forwards; }
+.page.active .memory:nth-child(2) { animation-delay: .15s; }.page.active .memory:nth-child(3) { animation-delay: .3s; }.page.active .memory:nth-child(4) { animation-delay: .45s; }
+.memory-dot { position: absolute; left: -24px; top: 0; width: 17px; height: 17px; border-radius: 50%; display: grid; place-items: center; color: white; background: #d9829e; font-size: 10px; box-shadow: 0 0 0 4px #f8e6ec; }
+.memory-date { font-size: 8px; font-weight: 700; letter-spacing: .14em; color: #c47c93; }
+.memory h3 { margin: 3px 0 3px; font: 19px "Patrick Hand", cursive; color: #79515f; }
+.memory p { margin: 0; font-size: 10px; line-height: 1.55; color: #896e78; }
+.timeline-note { background: #fbe8ed; color: #a7667e; text-align: center; padding: 8px; border-radius: 5px; font: 13px "Patrick Hand", cursive; transform: rotate(-1deg); margin-top: 9px; }
+
+.reason-list { display: flex; flex-direction: column; gap: 9px; margin-top: 18px; }
+.reason { display: grid; grid-template-columns: 24px 1fr 18px; align-items: start; gap: 7px; background: #fff7f8; border: 1px solid #f5e2e8; border-radius: 8px; padding: 10px 9px; opacity: 0; transform: translateY(9px) rotate(-1deg); }
+.page.active .reason { animation: notePop .38s forwards; }
+.page.active .reason:nth-child(2) { animation-delay: .06s; }.page.active .reason:nth-child(3) { animation-delay: .12s; }.page.active .reason:nth-child(4) { animation-delay: .18s; }.page.active .reason:nth-child(5) { animation-delay: .24s; }.page.active .reason:nth-child(6) { animation-delay: .3s; }
+.reason > span { color: #ce8099; font-size: 9px; font-weight: 700; padding-top: 3px; }
+.reason p { margin: 0; font: 14px/1.35 "Patrick Hand", cursive; color: #795c67; }
+.reason b { color: #d47d99; font-weight: 500; }
+.sticky-note { display: inline-block; background: #f7e1a8; color: #9b7657; font: 13px "Patrick Hand", cursive; padding: 7px 12px; margin: 14px 0 0 10px; transform: rotate(-3deg); box-shadow: 0 3px 7px #9c71401b; }
+
+.letter-page { padding-bottom: 47px !important; }
+.letter-paper { position: relative; height: calc(100% - 111px); overflow-y: auto; padding: 14px 13px 10px; background: #fffaf5; border: 1px solid #f1dce2; border-radius: 7px; box-shadow: inset 0 0 15px #d9a6b116; }
+.letter-salutation { margin: 0 0 10px; font: 19px "Patrick Hand", cursive; color: #b95878; }
+.typed-letter { white-space: pre-line; font: 15px/1.55 "Patrick Hand", cursive; color: #6d535e; }
+.typing-cursor { display: inline-block; color: #d66f91; animation: blink .8s step-end infinite; }
+.letter-sign { text-align: right; font: 14px/1.4 "Patrick Hand", cursive; color: #a16a7f; margin: 13px 0 0; }
+.small-action { display: block; margin: 8px auto 0; background: transparent; border: 1px solid #e9bdca; color: #a65d78; border-radius: 99px; padding: 7px 11px; font-size: 10px; cursor: pointer; }
+
+.wish-scene { height: calc(100% - 98px); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding: 0 8px 10px; }
+.birthday-cake { position: relative; width: 145px; height: 150px; margin: 0 auto 14px; animation: cakeIn .7s both; }
+.cake-bottom,.cake-middle,.cake-top { position: absolute; left: 50%; transform: translateX(-50%); border-radius: 9px 9px 13px 13px; box-shadow: inset 0 -5px #bd608023; }
+.cake-bottom { bottom: 19px; width: 135px; height: 44px; background: #f2a5ba; border: 2px solid #fff0f3; }
+.cake-middle { bottom: 56px; width: 111px; height: 38px; background: #fff0f4; border: 2px solid #f7d1dd; }
+.cake-top { bottom: 87px; width: 83px; height: 24px; background: #e889a7; border: 2px solid #ffeaf0; }
+.cake-plate { position: absolute; bottom: 10px; left: 0; width: 145px; height: 12px; border-radius: 50%; background: #e7bdca; box-shadow: 0 4px #c98ca0; }
+.flames { position: absolute; z-index: 2; left: 0; right: 0; bottom: 111px; display: flex; justify-content: center; gap: 17px; }
+.flames i { width: 8px; height: 15px; border-radius: 80% 20% 70% 30%; background: #ffd36c; transform: rotate(12deg); box-shadow: 0 0 12px #ffcf6c; animation: flame 1s ease-in-out infinite alternate; }
+.flames i:nth-child(2) { animation-delay: .2s; }.flames i:nth-child(3) { animation-delay: .4s; }
+.wish-title { font: 26px "Patrick Hand", cursive; color: #b95778; margin: 0 0 8px; }
+.wish-copy { max-width: 275px; font: 15px/1.5 "Patrick Hand", cursive; color: #8b6d79; margin: 0 0 18px; }
+.wish-button { background: #d96f90; color: white; }
+.wish-message { max-width: 300px; font: 16px/1.5 "Patrick Hand", cursive; color: #a34d70; background: #fff0f4; border-radius: 10px; padding: 12px; margin: 14px 0 0; animation: notePop .4s both; }
+.wish-sparkle { position: absolute; color: #d77d9a; font-size: 24px; animation: sparkle 2s infinite; }
+.ws1 { left: 15%; top: 20%; }.ws2 { right: 16%; top: 30%; animation-delay: .6s; }.ws3 { right: 19%; bottom: 22%; animation-delay: 1s; }
+
+.closing-page { display: flex; align-items: center; justify-content: center; text-align: center; }
+.closing-content { position: relative; z-index: 2; padding: 38px 37px 35px 47px; }
+.closing-flower { font-size: 64px; margin-bottom: 17px; animation: bob 3s infinite ease-in-out; }
+.closing-page .eyebrow { color: #fff4f7; font-size: 8px; }
+.closing-page h2 { font: 36px "Playfair Display", serif; margin: 10px 0 15px; }
+.closing-page p:not(.eyebrow) { font: 17px/1.6 "Patrick Hand", cursive; color: #fff8fa; }
+.closing-love { font-size: 21px !important; margin: 17px 0 20px; }
+.closing-page .primary-btn { background: white; }
+.text-btn { display: block; margin: 13px auto 0; border: 0; background: transparent; color: #fff5f7; font-size: 11px; text-decoration: underline; cursor: pointer; }
+
+.nav-btn { position: absolute; z-index: 12; bottom: 14px; border: 1px solid #f0d3dc; background: #fffafc; color: #b05e7a; width: 30px; height: 30px; border-radius: 50%; font-size: 17px; cursor: pointer; box-shadow: 0 3px 8px #9f5b7015; transition: transform .2s, background .2s; }
+.nav-btn:hover { transform: scale(1.08); background: #fbe6ed; }
+.nav-btn.prev { left: 44px; }.nav-btn.next { right: 21px; }
+.cover .nav-btn, .closing-page .nav-btn { display: none; }
+
+.reader-controls { width: min(480px,88vw); display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: center; gap: 9px; margin-top: 17px; }
+.reader-controls button { border: 1px solid #efced8; border-radius: 99px; background: #fff9fb; color: #a45b75; padding: 9px 10px; font-size: 10px; cursor: pointer; }
+.reader-controls button:disabled { opacity: .35; cursor: default; }
+.page-status { text-align: center; font-size: 9px; color: #a67b8a; }
+.progress-track { height: 3px; background: #efd6df; border-radius: 99px; margin-top: 6px; overflow: hidden; }
+#progressBar { height: 100%; width: 0; background: #d87997; transition: width .4s; }
+.keyboard-hint { color: #b08a97; font-size: 9px; margin: 11px 0 0; text-align: center; }
+.lightbox { position: fixed; z-index: 100; inset: 0; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 35px 15px; background: rgba(56,32,42,.82); backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox-figure { margin: 0; max-width: min(75vw,540px); max-height: 82vh; padding: 10px 10px 17px; background: white; transform: scale(.92) rotate(-1deg); transition: transform .25s; box-shadow: 0 20px 60px #0004; }
+.lightbox.open .lightbox-figure { transform: scale(1) rotate(0); }
+.lightbox-figure img { display: block; max-width: 100%; max-height: 68vh; object-fit: contain; }
+.lightbox-figure figcaption { text-align: center; color: #9c6e7e; font: 15px "Patrick Hand", cursive; padding-top: 9px; }
+.lightbox-close { position: absolute; top: 15px; right: 20px; border: 0; background: transparent; color: white; font-size: 36px; cursor: pointer; }
+.lightbox-arrow { border: 1px solid #fff7; background: #ffffff20; color: white; border-radius: 50%; width: 38px; height: 38px; font-size: 25px; cursor: pointer; flex: 0 0 auto; }
+.toast { position: fixed; z-index: 120; left: 50%; bottom: 20px; transform: translate(-50%,20px); opacity: 0; pointer-events: none; background: #805061; color: white; padding: 10px 15px; border-radius: 99px; font-size: 11px; transition: .25s; max-width: 90vw; text-align: center; }
+.toast.show { opacity: 1; transform: translate(-50%,0); }
+.confetti-piece { position: fixed; z-index: 80; top: -15px; width: 8px; height: 13px; pointer-events: none; animation: confettiFall var(--fall-time,3s) linear forwards; border-radius: 2px; }
+@keyframes confettiFall { to { transform: translate3d(var(--drift,40px),110vh,0) rotate(760deg); opacity: .85; } }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes sparkle { 0%,100% { opacity: .45; transform: scale(.85) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(12deg); } }
+@keyframes photoPop { from { opacity: 0; transform: translateY(15px) scale(.8) rotate(-5deg); } to { opacity: 1; transform: translateY(0) scale(1) rotate(0); } }
+@keyframes drawLine { to { transform: scaleY(1); } }
+@keyframes memoryIn { to { opacity: 1; transform: translateX(0); } }
+@keyframes notePop { to { opacity: 1; transform: translateY(0) rotate(0); } }
+@keyframes cakeIn { from { opacity: 0; transform: translateY(15px) scale(.85); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes flame { from { transform: translateY(1px) rotate(10deg) scale(.92); } to { transform: translateY(-2px) rotate(-8deg) scale(1.08); } }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width: 520px) {
+  .top-tools { margin-top: 10px; }
+  .tiny-brand { font-size: 10px; }
+  .music-toggle { padding: 8px 10px; font-size: 10px; }
+  .stage { min-height: calc(100svh - 45px); padding: 12px 8px 17px; }
+  .book-wrap { width: min(440px,92vw); height: min(690px,76svh); min-height: 510px; }
+  .page.paper { padding: 29px 24px 39px 42px; }
+  .page-heading h2 { font-size: 24px; }
+  .cover-content { padding-left: 37px; padding-right: 25px; }
+  .cover h1 { font-size: clamp(37px,10vw,48px); }
+  .cover h1 span { font-size: .76em; }
+  .cover-cat { font-size: 62px; }
+  .greeting-copy { font-size: 16px; }
+  .greeting-copy p { margin-bottom: 12px; }
+  .birthday-illustration { height: 83px; }
+  .cake { font-size: 59px; }
+  .photo-grid { gap: 8px 6px; }
+  .polaroid { padding: 4px 4px 6px; }
+  .photo-caption { font-size: 9px; }
+  .small-intro { font-size: 13px; }
+  .memory { margin-bottom: 15px; }
+  .memory h3 { font-size: 17px; }
+  .memory p { font-size: 9px; }
+  .reason-list { gap: 7px; margin-top: 12px; }
+  .reason { padding: 8px 7px; grid-template-columns: 20px 1fr 14px; gap: 5px; }
+  .reason p { font-size: 12px; }
+  .sticky-note { margin-top: 10px; font-size: 11px; }
+  .typed-letter { font-size: 14px; }
+  .letter-paper { height: calc(100% - 108px); padding: 11px; }
+  .closing-content { padding-left: 39px; padding-right: 25px; }
+  .reader-controls { width: min(440px,92vw); gap: 5px; }
+  .reader-controls button { padding: 9px 6px; font-size: 9px; }
+  .keyboard-hint { max-width: 90vw; line-height: 1.4; }
+  .nav-btn.prev { left: 38px; }
+  .lightbox { gap: 8px; }
+  .lightbox-arrow { width: 32px; height: 32px; }
+  .lightbox-figure { max-width: calc(100vw - 95px); }
+}
+@media (max-height: 650px) and (min-width: 521px) {
+  .book-wrap { height: 76vh; min-height: 470px; }
+  .stage { padding-top: 8px; }
+  .cover-tape { top: 22px; }
+  .cover-cat { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
